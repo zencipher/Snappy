@@ -10,4 +10,5 @@ Baseline for a Snapchat app
 - [ ] Take photos and save images
 - [ ] Chat option*
 - [ ] Search for other users*
-- [ ] Create user database
+
+*Create user database first
