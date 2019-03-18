@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Props} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {Container, Content} from 'native-base';
 import Swiper from 'react-native-swiper';
 import Camera from './Components/Camera';
+import DisplayImage from './Components/DisplayImage';
 
 export default class App extends React.Component {
   constructor(){
@@ -25,44 +26,48 @@ export default class App extends React.Component {
     }
   }
   render() {
-    return (
-      <Container>
-        <Content>
-          <Swiper
-          loop = {false}
-          showsPagination = {false}
-          index = {1}
-          scrollEnabled = {this.state.outerScrollEnabled}
-          >
-            <View style = {styles.styleDefault}>
-              <Text style = {styles.text}>Chat</Text>
-            </View>
+  
+      return (
+        <Container>
+          <Content>
             <Swiper
             loop = {false}
             showsPagination = {false}
             index = {1}
-            horizontal = {false}
-            onIndexChanged = {(index) => this.verticalScroll(index)}
+            scrollEnabled = {this.state.outerScrollEnabled}
             >
               <View style = {styles.styleDefault}>
-                <Text style = {styles.text}>Search</Text>
+                <Text style = {styles.text}>Chat</Text>
               </View>
-              <View style = {{flex: 1}}>
-                <Camera></Camera>
-              </View>
+              <Swiper
+              loop = {false}
+              showsPagination = {false}
+              index = {1}
+              horizontal = {false}
+              onIndexChanged = {(index) => this.verticalScroll(index)}
+              >
+                <View style = {styles.styleDefault}>
+                  <Text style = {styles.text}>Search</Text>
+                </View>
+                <View style = {{flex: 1}}>
+                  <Camera/>
+                </View>
+                <View style = {styles.styleDefault}>
+                  <Text style = {styles.text}>Memories</Text>
+                </View>
+              </Swiper>
+
               <View style = {styles.styleDefault}>
-                <Text style = {styles.text}>Memories</Text>
+                <Text style = {styles.text}>Stories</Text>
               </View>
             </Swiper>
-
-            <View style = {styles.styleDefault}>
-              <Text style = {styles.text}>Stories</Text>
-            </View>
-          </Swiper>
-        </Content>
-      </Container>
-    );
-  }
+          </Content>
+        </Container>
+      );
+    }
+    
+  
+    
 }
 
 const styles = StyleSheet.create({
